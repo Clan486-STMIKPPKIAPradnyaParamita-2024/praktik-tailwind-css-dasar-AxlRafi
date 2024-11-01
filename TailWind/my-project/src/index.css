@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body-dots {
+  background-image: radial-gradient(
+      circle,
+      rgba(210, 180, 140, 0.5) 10%,
+      transparent 10%
+    ),
+    radial-gradient(circle, rgba(210, 180, 140, 0.5) 10%, transparent 10%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.project-card {
+  @apply bg-[#E8D7C3] p-4 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center;
+}
