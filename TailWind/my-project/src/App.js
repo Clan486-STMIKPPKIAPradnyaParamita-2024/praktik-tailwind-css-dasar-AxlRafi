@@ -1,24 +1,7 @@
 import "./index.css";
-import { useState, useEffect } from "react";
 import glassesGirl from "./images/glasses-girl.jpeg";
 
 export default function App() {
-  const [dots, setDots] = useState([]);
-
-  useEffect(() => {
-    const generateDots = () => {
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const dotSize = 20;
-      const totalDots = Math.floor(vw / dotSize) * Math.floor(vh / dotSize);
-      setDots(Array.from({ length: totalDots }));
-    };
-
-    generateDots();
-    window.addEventListener("resize", generateDots);
-    return () => window.removeEventListener("resize", generateDots);
-  }, []);
-
   return (
     <div className="relative min-h-screen overflow-hidden body-dots bg-white">
       <header className="bg-[#D9CBA0] text-white p-6 mb-8 relative z-10">
@@ -27,10 +10,8 @@ export default function App() {
           alt="Glasses Girl"
           className="w-24 h-24 bg-blue-300 rounded-full border-4 border-white mx-auto mb-4 object-cover"
         />
-        <h1 className="text-3xl font-extrabold text-center font-cute">
-          John Doe
-        </h1>
-        <p className="text-center text-md mt-2 font-light">
+        <h1 className="text-3xl font-extrabold text-center">John Doe</h1>
+        <p className="text-center text-base mt-2 font-light">
           Web Developer & Designer
         </p>
       </header>
@@ -47,7 +28,7 @@ export default function App() {
           functional websites.
         </p>
 
-        <h3 className="text-xl font-bold text-gray-800 mb-4 text-center font-cute">
+        <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
           Projects
         </h3>
         <div className="space-y-4">
@@ -68,16 +49,14 @@ export default function App() {
               title: "Blog Application",
               description:
                 "A blog platform with user authentication and CRUD operations.",
-              icon: "📝",
+              icon: "💼",
             },
           ].map((project, index) => (
             <div key={index} className="project-card">
-              <span className="text-yellow-500 mr-2">{project.icon}</span>
+              <span className="mr-2">{project.icon}</span>{" "}
               <div>
-                <h4 className="text-lg font-semibold text-gray-700">
-                  {project.title}
-                </h4>
-                <p className="text-sm text-gray-600">{project.description}</p>
+                <h4 className="text-lg font-semibold">{project.title}</h4>
+                <p className="text-sm">{project.description}</p>
               </div>
             </div>
           ))}
@@ -85,10 +64,10 @@ export default function App() {
       </main>
 
       <footer className="text-center mt-10 mb-8 relative z-10">
-        <button className="bg-green-300 text-white px-8 py-3 rounded-lg mt-4 mr-2 shadow-lg transform transition-all duration-300 hover:bg-green-400 hover:shadow-xl hover:scale-105 font-cute">
+        <button className="bg-green-300 text-white px-8 py-3 rounded-lg mt-4 mr-2 shadow-lg transform transition-all duration-300 hover:bg-green-400 hover:shadow-xl hover:scale-105">
           Contact Me
         </button>
-        <button className="bg-yellow-300 text-white px-8 py-3 rounded-lg mt-4 shadow-lg transform transition-all duration-300 hover:bg-yellow-400 hover:shadow-xl hover:scale-105 font-cute">
+        <button className="bg-yellow-300 text-white px-8 py-3 rounded-lg mt-4 shadow-lg transform transition-all duration-300 hover:bg-yellow-400 hover:shadow-xl hover:scale-105">
           View More Projects
         </button>
       </footer>
